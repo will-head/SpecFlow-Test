@@ -38,7 +38,7 @@ namespace MyProject.Specs.Steps
         [When(@"I press subtract")]
         public void WhenIPressSubtract()
         {
-            _scenarioContext.Pending();
+            _result = _calculator.Subtract();
         }
 
         [Then(@"the result should be (.*) on the screen")]
