@@ -10,6 +10,13 @@ namespace MyProject.Specs.Steps
         private readonly Calculator _calculator = new Calculator();
         private int _result;
 
+        private readonly ScenarioContext _scenarioContext;
+
+        public CalculatorSteps(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+
         [Given(@"I have entered (.*) into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(int number)
         {
@@ -26,6 +33,12 @@ namespace MyProject.Specs.Steps
         public void WhenIPressAdd()
         {
             _result = _calculator.Add();
+        }
+
+        [When(@"I press subtract")]
+        public void WhenIPressSubtract()
+        {
+            _scenarioContext.Pending();
         }
 
         [Then(@"the result should be (.*) on the screen")]
